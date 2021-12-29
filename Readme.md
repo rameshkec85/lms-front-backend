@@ -5,5 +5,9 @@
 4. Raise Request
 5. View Borrowed Books
 
+| ENDPOINT  | PARAMETERS |
+| ------------- | ------------- |
+| /login  | ?email=&password=  |
+
 
 
