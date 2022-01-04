@@ -1,7 +1,16 @@
-<html>
-    <body>
-        <h1>
-            Welcome to LMS, {{name}}
-        </h1>
-    </body>
-</html>
+{% extends "sidemenu.html" %}
+{% block content %}
+{% if session['logged_in'] %}
+<p>You're logged in already!</p>
+{% else %}
+<h2>HOME PAGE</h2>
+
+<style>
+  p{
+    color: black;
+  }
+</style>
+
+
+{% endif %}
+{% endblock %}

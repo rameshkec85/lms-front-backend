@@ -87,7 +87,7 @@ def getAllRequests():
     con=sqlite3.connect(DATABASE_NAME,check_same_thread=False)
     con.row_factory = sqlite3.Row #Add this: To get data by column name
     cur=con.cursor()
-    cur.execute('select rq.*, books.title,users.name,users.id as user_id,books.id as book_id  from requests as rq inner join books on rq.book_id==books.id inner join users on rq.user_id==users.id')
+    cur.execute('select rq.*, books.title,books.author,books.description,users.name,users.id as user_id,books.id as book_id  from requests as rq inner join books on rq.book_id==books.id inner join users on rq.user_id==users.id')
     rows=cur.fetchall() 
     print(rows)
     return rows

@@ -1,0 +1,71 @@
+{% extends "sidemenu.html" %}
+{% block content %}
+{% if session['logged_in'] %}
+<p>You're logged in already!</p>
+{% else %}
+<h2>Student Requests</h2>
+
+{% if book_req|length==0 %}
+<h1>No Requests</h1>
+{%endif%}
+<style>
+  p{
+    color: black;
+  }
+</style>
+<table class="table table-bordered" style="min-width: 600px;">
+<thead>
+  <tr>
+    <th>ID</th>
+  
+    <th>Title</th>
+    <th>Author</th>
+    <th>
+      Name
+      </th>
+      <th>
+        Status
+        </th>
+        <th>
+          Date
+          </th>
+       
+  </tr>
+</thead>
+<tbody>
+{%for u in book_req %} 
+<tr>
+  <td style="color: red;">    
+    <p>{{u.id}}</p>
+  </td>
+    <td>    
+      <p>{{u.title}}</p>
+    </td>
+    <td>    
+      <p>{{u.author}}</p>
+    </td>
+    <td>    
+      <p>{{u.name}}</p>       
+    </td>
+    <td>    
+      {% if u.status=='Requested' %}
+      <p style="color: red;">{{u.status}}</p>   
+      {% elif u.status=='Issued' %} 
+      <p style="color: green;">{{u.status}}</p>       
+      {% else %} 
+      <p>{{u.status}}</p>        
+      {%endif%}
+      
+    </td>
+    <td>    
+      <p>{{u.req_date}}</p>       
+    </td>
+   
+    
+</tr>
+{%endfor%}
+
+</tbody>
+
+{% endif %}
+{% endblock %}

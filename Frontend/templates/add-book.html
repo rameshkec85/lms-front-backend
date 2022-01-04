@@ -1,0 +1,16 @@
+{% extends "sidemenu.html" %}
+{% block content %}
+{% if session['logged_in'] %}
+<p>You're logged in already!</p>
+{% else %}
+<h2>Add Book</h2>
+<form action="/saveBook" method="POST">
+  <input type="text" name="title" placeholder="Title"/></br></br>
+  <input type="text" name="author" placeholder="Author"/></br></br>
+  <input type="text" name="description" placeholder="Description"/></br></br>
+  <input type="text" name="isbn" placeholder="ISBN"/></br></br>
+  <input type="submit" value="SAVE">
+</form>
+
+{% endif %}
+{% endblock %}
